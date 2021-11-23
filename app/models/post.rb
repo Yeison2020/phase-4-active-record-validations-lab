@@ -4,8 +4,8 @@ class Post < ApplicationRecord
     validates :title, presence: true
     validates :content, length: {minimum: 250}
     validates :summary, length: {maximum: 250}
-    validates :category, inclusion:{in: CATEGORY}
-    validates :title, exclusion: {in:  NOTALLOW }
+    validates :category, inclusion:{in: CATEGORY,  message: "must be one of: #{CATEGORY.join(', ')}"}
+    validates :title, exclusion: {in:  NOTALLOW,  message: "must be one of: #{NOTALLOW.join(', ')}" }
  
 
 
